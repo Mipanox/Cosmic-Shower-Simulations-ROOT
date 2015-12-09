@@ -72,11 +72,14 @@ void HS(int id, float E, float theta, float phi,
 
 void rec_pro()
 {
+  TCanvas *c1  = new TCanvas("c1","c1",0,0,1200,600);
+  c1 -> Divide(2,1);
+  
   TNtuple *ntu = new TNtuple("ntu","ntu","id:flag:E:px:py:pz:x:y:z");
   r = new TRandom();
 
   // a thousand incoming protons !
-  for (int ievt=0; ievt<1000; ievt++)
+  for (int ievt=0; ievt<30000; ievt++)
   {
     n_particle = 0; // nothing generated yet
 
@@ -136,8 +139,15 @@ void rec_pro()
       ntu -> Fill(id,flag,E,px,py,pz,vx,vy,vz);
     }    
   }
-  // gPad -> SetLogy();
+  c1 -> cd(1);
   ntu -> Draw("z", "id==2212");
+  ntu -> SetTitle("Secondary Proton Height");
+  // adding title and color for Ntuple FAILED
+
+  c1 -> cd(2);
+  ntu -> Draw("z", "id==211");
+  ntu -> SetLineColor(2);
+  ntu -> SetTitle("Secondary Pion Height");
   
 }
 
@@ -282,14 +292,6 @@ void HS(int id, float E, float theta, float phi,
       float py_pi = -p*sin(theta)*sin(phi);
       float pz_pi = -p*cos(theta);          // direction of p does not change
       
-
-      /*
-      // this should be WRONG, marked as "Ek" in output pdf
-      float px_pi = -E_k_pi*sin(theta)*cos(phi);
-      float py_pi = -E_k_pi*sin(theta)*sin(phi);
-      float pz_pi = -E_k_pi*cos(theta); 
-      */
-      // register every pion after one while loop
       Ptcl_Reg(pio_p, 1, px_pi, py_pi, pz_pi, x, y, z);
     }
   }
