@@ -1,0 +1,21 @@
+double M_pi = 0.13997;
+double M_mu = 0.10157;
+double M_nu = 0;
+TRandom *r;
+
+/* no physics, isotropically distributed angle */
+void draw_par()
+{
+  r = new TRandom();
+
+  TCanvas *sky = new TCanvas("sky","sky",300,10,1000,1600);
+  TView *view  = TView::CreateView(1,0,0);
+
+  view -> ShowAxis();
+  view -> SetRange(-5,-5,0,5,5,10);
+
+  for (int i=0; i<100; i++)
+  {
+    double theta = acos(r -> Rndm()); // 0 - 90 deg downgoing
+  }
+}
