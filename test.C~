@@ -1,6 +1,0 @@
-void test(){
-float a=8;
-float b=2;
-float c=a*b;
-cout << c << " test" <<endl;
-}
