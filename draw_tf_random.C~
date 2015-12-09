@@ -1,6 +1,0 @@
-void draw_tf_random()
-{
-  TCanvas *c1 = new TCanvas("c1","c1",10,10,400,700);
-  
-
-}
