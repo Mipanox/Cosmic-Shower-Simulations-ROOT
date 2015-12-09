@@ -82,7 +82,7 @@ void E_split_N(float E_in, float E_br[]);
   Main Part
   ---------*/
 
-void rec_pion_cp()
+void rec_pion_full()
 {
   TNtuple *ntu = new TNtuple("ntu","ntu","id:flag:E:px:py:pz:x:y:z");
   r = new TRandom();
