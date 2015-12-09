@@ -1,6 +1,5 @@
 // Simulation for Hillas Splitting proton production
 // - only proton shower part (pions ignored)
-// - air density distribution assumed uniform
 
 /*-------
   Header
