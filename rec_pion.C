@@ -113,7 +113,7 @@ void rec_pion()
       y = Ptcl_Bank[i_particle].vy; // from the incoming proton (outside the loop)
       z = Ptcl_Bank[i_particle].vz;
 
-      if (abs(id)==pro_p && flag==1 & E>E_th)
+      if (abs(id)==pro_p && flag==1 && E>E_th)
       {
         Get_P_Int_Position(theta,phi,x,y,z,vx,vy,vz);
 
@@ -124,7 +124,7 @@ void rec_pion()
 	}
       }
 
-      if (abs(id)==pio_p && flag==1 & E>E_th)
+      if (abs(id)==pio_p && flag==1 && E>E_th)
       {
         Get_Pi_Int_Position(theta,phi,x,y,z,vx,vy,vz);
 
