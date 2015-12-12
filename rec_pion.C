@@ -279,7 +279,9 @@ void HS(int id, float E, float theta, float phi,
   float E_A = 0;
   float E_B = 0;
 
-  float mass = M_pro; 
+  float mass;
+  if (id==pio_p) mass = M_pi; //PROBLEM?#1
+  else mass = M_pro;
 
   while (E_A < mass)
   {
@@ -316,9 +318,9 @@ void HS(int id, float E, float theta, float phi,
 
       // marked as "E" in output pdf
       float p_pi  = sqrt(E_t_pi*E_t_pi-M_pi*M_pi);
-      float px_pi = -p*sin(theta)*cos(phi);
-      float py_pi = -p*sin(theta)*sin(phi);
-      float pz_pi = -p*cos(theta);          // direction of p does not change
+      float px_pi = -p_pi*sin(theta)*cos(phi);
+      float py_pi = -p_pi*sin(theta)*sin(phi);
+      float pz_pi = -p_pi*cos(theta);          // direction of p does not change
       
       Ptcl_Reg(pio_p, 1, px_pi, py_pi, pz_pi, x, y, z);
     }
