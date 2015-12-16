@@ -92,7 +92,8 @@ void muon_decay()
 
   view -> ShowAxis();
   view -> SetRange(-5,-5,0,5,5,10);
-
+  int Muon_counter = 0; // total number of muons reaching ground
+  
   for (int ievt=0; ievt<1; ievt++)
   {
     n_particle = 0; // nothing generated yet
@@ -111,7 +112,6 @@ void muon_decay()
 
     float E_th = 10; // threshold for particle energy
     int i_particle   = 0; // number of particles produced
-    int Muon_counter = 0; // number of muons reaching ground
 
     // loop through all particles (now just for protons)
     // dynamically: n_partcile is INCREASING during the process !
@@ -209,6 +209,7 @@ void muon_decay()
       i_particle++; 
     }
   }
+  cout << Muon_counter << endl;
 }
 
 
