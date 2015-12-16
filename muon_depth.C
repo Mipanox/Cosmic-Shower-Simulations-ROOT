@@ -1,6 +1,7 @@
 /*** Calculate muon range ***/
 // how far muon can travel inside a rock of density 2.65 g/cm3
-// NOTE: 'range': given energy, how far a particle can travel
+// - slow because of integral
+// - NOTE: 'range': given energy, how far a particle can travel
 
 const double M_mu = 0.105658; // GeV
 const double M_e  = 511.e-6;
@@ -19,7 +20,8 @@ void muon_depth()
   r = new TRandom();
 
   Func_muon_dxde = new TF1("fr",dxde_mu,0.2,100,1);
-  Func_muon_dxde -> SetNpx(1000); // how many points to draw func
+  Func_muon_dxde -> SetNpx(1000); // how many points to sample the func
+                                  // i.e. slicing of the integral
 
   TH1F *muon_d = new TH1F("muon_d","muon_d",100,0,500);
   
