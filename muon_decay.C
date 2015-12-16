@@ -1,6 +1,6 @@
 /**** Continuing from rec_pion_full.C ****/
 // Add muon decay without EM interactions
-// DISPALY: red - muon
+// DISPALY: red - ground-reaching muons
 
 /*-------
   Header
